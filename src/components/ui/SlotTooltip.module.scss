@@ -1,0 +1,94 @@
+.slot-tooltip-overlay {
+    --slot-tooltip-bg: var(--slot-tooltip-bg, #fff);
+    --slot-tooltip-bg-dark: var(--slot-tooltip-bg-dark, #23272f);
+    --slot-tooltip-border: var(--slot-tooltip-border, #e5e7eb);
+    --slot-tooltip-border-dark: var(--slot-tooltip-border-dark, #374151);
+    --slot-tooltip-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    --slot-tooltip-text: var(--slot-tooltip-text, #222);
+    --slot-tooltip-text-dark: var(--slot-tooltip-text-dark, #f3f4f6);
+    --slot-tooltip-tag-bg: var(--slot-tooltip-tag-bg, #10b981);
+    --slot-tooltip-tag-bg-dark: var(--slot-tooltip-tag-bg-dark, #047857);
+    background: var(--slot-tooltip-bg);
+    border-radius: 10px;
+    border: 1px solid var(--slot-tooltip-border);
+    box-shadow: var(--slot-tooltip-shadow);
+    padding: 10px 0;
+    min-width: 180px;
+    max-width: 320px;
+    transition: background 0.2s;
+}
+
+.dark .slot-tooltip-overlay {
+    background: var(--slot-tooltip-bg-dark);
+    border-color: var(--slot-tooltip-border-dark);
+    color: var(--slot-tooltip-text-dark);
+}
+
+.slot-tooltip-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.slot-tooltip-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 14px;
+    border-radius: 7px;
+    background: none;
+}
+
+.slot-tooltip-time {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.slot-tooltip-icon {
+    color: #10b981;
+    font-size: 15px;
+}
+
+.slot-tooltip-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--slot-tooltip-text);
+}
+
+.dark .slot-tooltip-text {
+    color: var(--slot-tooltip-text-dark);
+}
+
+.slot-tooltip-tag {
+    font-size: 12px;
+    background: var(--slot-tooltip-tag-bg);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin-left: 8px;
+}
+
+.dark .slot-tooltip-tag {
+    background: var(--slot-tooltip-tag-bg-dark);
+}
+
+.slot-tooltip-trigger {
+    background: transparent;
+    color: #10b981;
+    border: none;
+    border-radius: 0;
+    font-size: 12px;
+    padding: 2px 8px;
+    font-weight: 500;
+    cursor: pointer;
+    min-width: 24px;
+    text-align: center;
+    display: inline-block;
+    transition: color 0.2s;
+}
+
+.dark .slot-tooltip-trigger {
+    color: #34d399;
+}

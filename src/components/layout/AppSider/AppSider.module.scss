@@ -1,0 +1,441 @@
+.sider {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.04);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &.collapsed {
+    width: 80px;
+  }
+
+  .siderContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.5rem 0;
+  }
+
+  // Logo Section
+  .logoSection {
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex: 1;
+
+      .logoIcon {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border-radius: 12px;
+        color: #ffffff;
+        font-size: 20px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      }
+
+      .logoText {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1e293b;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .collapseButton {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      color: #64748b;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #f0fdf4;
+        color: #10b981;
+      }
+    }
+  }
+
+  .divider {
+    margin: 0.5rem 1rem;
+    border-color: #e5e7eb;
+  }
+
+  // Menu Section
+  .menuSection {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5rem 0;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #d1fae5;
+      border-radius: 3px;
+
+      &:hover {
+        background: #a7f3d0;
+      }
+    }
+  }
+
+  .menu {
+    border: none;
+    background: transparent;
+
+    :global(.ant-menu-item) {
+      height: 48px;
+      line-height: 48px;
+      margin: 0.25rem 1rem;
+      padding: 0 1rem !important;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #475569;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      &:hover {
+        background: #f0fdf4;
+        color: #10b981;
+      }
+
+      :global(.ant-menu-item-icon) {
+        font-size: 18px;
+        color: inherit;
+        min-width: 20px;
+      }
+
+      &.ant-menu-item-selected {
+        background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        color: #10b981;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+
+        :global(.ant-menu-item-icon) {
+          color: #10b981;
+        }
+      }
+    }
+  }
+
+  // Footer Section
+  .footerSection {
+    padding: 0 1rem;
+    margin-top: auto;
+
+    .userSection {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border-radius: 12px;
+      background: #f0fdf4;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #ecfdf5;
+      }
+
+      .avatar {
+        flex-shrink: 0;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+      }
+
+      .userInfo {
+        flex: 1;
+        min-width: 0;
+
+        .userName {
+          font-size: 14px;
+          font-weight: 600;
+          color: #1e293b;
+          margin-bottom: 0.25rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .userEmail {
+          font-size: 12px;
+          color: #64748b;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    .logoutButton {
+      height: 44px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #fef2f2;
+        color: #ef4444;
+      }
+
+      :global(.anticon) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // Collapsed state
+  &.collapsed {
+    .logoSection {
+      justify-content: center;
+      padding: 0;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .logo {
+        justify-content: center;
+        width: 100%;
+
+        .logoIcon {
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      .collapseButton {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+
+    .menuSection {
+      :global(.ant-menu-item) {
+        margin: 0.25rem 0.75rem;
+        padding: 0 !important;
+        justify-content: center;
+
+        :global(.ant-menu-title-content) {
+          display: none;
+        }
+      }
+    }
+
+    .footerSection {
+      .userSection {
+        justify-content: center;
+        padding: 0.5rem;
+
+        .userInfo {
+          display: none;
+        }
+      }
+
+      .logoutButton {
+        :global(.ant-btn-icon) {
+          margin: 0;
+        }
+
+        :global(.anticon) {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Overlay
+.mobileOverlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 99;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .sider {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 280px !important;
+    height: 100vh !important;
+    max-width: 80vw;
+    transform: translateX(-100%);
+    border-right: 1px solid #e5e7eb;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.04);
+    z-index: 100;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.mobileOpen {
+      transform: translateX(0);
+    }
+
+    .siderContent {
+      padding: 1.5rem 0;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .logoSection {
+      padding: 0 1.5rem;
+      margin-bottom: 1rem;
+
+      .logo {
+        .logoIcon {
+          width: 40px;
+          height: 40px;
+          font-size: 20px;
+        }
+
+        .logoText {
+          font-size: 1.25rem;
+        }
+      }
+
+      .collapseButton {
+        display: flex;
+      }
+    }
+
+    .divider {
+      display: block;
+      margin: 0.5rem 1rem;
+    }
+
+    .menuSection {
+      flex: 1;
+      overflow-x: hidden;
+      overflow-y: auto;
+      padding: 0.5rem 0;
+
+      &::-webkit-scrollbar {
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #d1fae5;
+        border-radius: 2px;
+
+        &:hover {
+          background: #a7f3d0;
+        }
+      }
+
+      :global(.ant-menu) {
+        display: block;
+        border: none;
+        background: transparent;
+      }
+
+      :global(.ant-menu-item) {
+        margin: 0.25rem 1rem;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 1rem !important;
+        border-radius: 12px;
+        font-size: 15px;
+
+        :global(.ant-menu-item-icon) {
+          font-size: 18px;
+          margin-right: 0.75rem;
+        }
+      }
+    }
+
+    .footerSection {
+      padding: 0 1rem;
+      margin-top: auto;
+
+      .divider {
+        display: block;
+        margin: 0.5rem 1rem;
+      }
+
+      .userSection {
+        padding: 0.75rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+
+        .avatar {
+          width: 48px !important;
+          height: 48px !important;
+          flex-shrink: 0;
+        }
+
+        .userInfo {
+          display: block;
+          flex: 1;
+          min-width: 0;
+        }
+      }
+
+      .logoutButton {
+        height: 44px;
+        font-size: 15px;
+        width: 100%;
+
+        :global(.anticon) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

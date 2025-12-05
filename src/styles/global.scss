@@ -1,0 +1,149 @@
+@use 'tailwindcss';
+@use 'antd/dist/reset.css';
+@use './typography.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    /* Sider width */
+    --sider-width: 280px;
+
+    /* Фоновые цвета */
+    --color-bg-base: #f7f8fa;
+
+    /* Цвета скроллбаров */
+    --color-scrollbar: #d1d5db;
+    --color-scrollbar-hover: #9ca3af;
+    --color-scrollbar-active: #64748b;
+    --color-scrollbar-track: #f1f5f9;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Темная тема */
+.dark {
+    --color-bg-base: #181a1b;
+
+    --color-scrollbar: #4b5563;
+    --color-scrollbar-hover: #6b7280;
+    --color-scrollbar-active: #64748b;
+    --color-scrollbar-track: #374151;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background: var(--color-bg-base);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Позиционирование сообщений внизу справа */
+.ant-message {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    margin-right: auto !important;
+    z-index: 1010;
+}
+
+.ant-typography {
+    margin-bottom: 0 !important;
+}
+
+/* Кастомные скроллбары */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background: var(--color-scrollbar-hover);
+    }
+
+    &:active {
+        background: var(--color-scrollbar-active);
+    }
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--color-scrollbar-track);
+}
+
+/* Скроллбары для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);
+}
+
+/* Глобальное размытие оверлея для модальных окон */
+.ant-modal-mask {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Темная тема */
+.dark {
+    ::-webkit-scrollbar-track {
+        background: var(--color-scrollbar-track);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-scrollbar);
+
+        &:hover {
+            background: var(--color-scrollbar-hover);
+        }
+
+        &:active {
+            background: var(--color-scrollbar-active);
+        }
+    }
+
+    ::-webkit-scrollbar-corner {
+        background: var(--color-scrollbar-track);
+    }
+
+    * {
+        scrollbar-color: var(--color-scrollbar) var(--color-scrollbar-track);
+    }
+}

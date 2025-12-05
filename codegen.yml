@@ -1,0 +1,25 @@
+schema:
+  - './src/graphql/schema.graphql' # Локальный файл схемы 
+documents: './src/**/*.graphql'
+extensions:
+  endpoints:
+    default: ${VITE_GRAPHQL_URL} # URL сервера GraphQL
+  codegen:
+    overwrite: true
+    documents: "**/*!(*.generated).{gql,graphql}" # GraphQL документы (запросы, мутации, подписки)
+    generates:
+      # Генерация TypeScript типов и хуков
+      src/graphql/generated.ts:
+        plugins:
+          - typescript
+          - typescript-operations
+          - typescript-react-apollo
+        config:
+          withHooks: true
+          withComponent: false
+          withHOC: false
+          dedupeFragments: true
+          preResolveTypes: true
+          scalars:
+            UUID: string
+            DateTime: string

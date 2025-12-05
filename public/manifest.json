@@ -1,0 +1,55 @@
+{
+  "name": "Умный Счет - Управление финансами с AI",
+  "short_name": "Умный Счет",
+  "description": "Современная платформа для управления личными финансами. Учет транзакций, бюджетирование, AI аналитика и умный помощник для контроля расходов и доходов",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["finance", "business", "productivity"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Транзакции",
+      "short_name": "Транзакции",
+      "description": "Просмотр и управление транзакциями",
+      "url": "/transactions",
+      "icons": [{ "src": "/logo.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Аналитика",
+      "short_name": "Аналитика",
+      "description": "AI аналитика финансовых данных",
+      "url": "/analytics",
+      "icons": [{ "src": "/logo.svg", "sizes": "96x96" }]
+    },
+    {
+      "name": "Счета",
+      "short_name": "Счета",
+      "description": "Управление счетами",
+      "url": "/accounts",
+      "icons": [{ "src": "/logo.svg", "sizes": "96x96" }]
+    }
+  ]
+} 

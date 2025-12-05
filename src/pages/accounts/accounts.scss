@@ -1,0 +1,81 @@
+.accounts-page {
+  width: 100%;
+  height: 100%;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 2rem 2rem 2rem;
+
+  .accounts-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .accounts-header {
+    margin-bottom: 1.5rem;
+
+    .accounts-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 0;
+      line-height: 1.2;
+    }
+
+    .accounts-subtitle {
+      font-size: 1rem;
+      color: #64748b;
+      margin: 0;
+      line-height: 1.5;
+    }
+  }
+
+  .accounts-grid-wrapper {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.5rem;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
+
+      &:hover {
+        background: #94a3b8;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .accounts-page {
+    padding: 0.75rem 1rem 1rem 1rem;
+
+    .accounts-header {
+      margin-bottom: 1rem;
+
+      .accounts-title {
+        font-size: 1.5rem;
+      }
+
+      .accounts-subtitle {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}
+

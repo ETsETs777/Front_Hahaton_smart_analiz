@@ -1,12 +1,143 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Front Hahaton Smart Analiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- Favicon и иконки -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Базовые SEO мета-теги -->
+    <title>Умный Счет - Управление финансами с AI</title>
+    <meta name="description" content="Современная платформа для управления личными финансами. Учет транзакций, бюджетирование, AI аналитика и умный помощник для контроля расходов и доходов." />
+    <meta name="keywords" content="управление финансами, учет расходов, личный бюджет, финансовый менеджмент, AI аналитика, транзакции, счета, умный счет" />
+    <meta name="author" content="SmartSchet" />
+    <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- Open Graph теги для социальных сетей -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Умный Счет - Управление финансами с AI" />
+    <meta property="og:description" content="Современная платформа для управления личными финансами. Учет транзакций, бюджетирование, AI аналитика и умный помощник для контроля расходов и доходов." />
+    <meta property="og:site_name" content="Умный Счет" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Twitter Card теги -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Умный Счет - Управление финансами с AI" />
+    <meta name="twitter:description" content="Современная платформа для управления личными финансами. Учет транзакций, бюджетирование, AI аналитика и умный помощник для контроля расходов и доходов." />
+    <meta name="twitter:image" content="/og-image.png" />
+    
+    <!-- Дополнительные мета-теги -->
+    <meta name="theme-color" content="#10b981" />
+    <meta name="msapplication-TileColor" content="#10b981" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Умный Счет" />
+    
+    <!-- Безопасность -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    
+    <!-- Preconnect для улучшения производительности -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    
+    <!-- Google Fonts с оптимизацией -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet" />
+    
+    <!-- Preload критических ресурсов -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+    
+    <!-- Инлайн стили для улучшения производительности -->
+    <style>
+      /* Критические CSS для предотвращения FOUC */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Скелетон загрузки */
+      .loading-skeleton {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+      
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      
+      /* Улучшенная типографика */
+      * {
+        box-sizing: border-box;
+      }
+      
+      /* Оптимизация для мобильных устройств */
+      @media (max-width: 768px) {
+        body {
+          font-size: 14px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Fallback контент для SEO и доступности -->
+    <noscript>
+      <div style="padding: 20px; text-align: center; background: #fff3cd; border: 1px solid #ffeaa7; margin: 20px;">
+        <h2>JavaScript отключен</h2>
+        <p>Для работы приложения Умный Счет необходимо включить JavaScript в вашем браузере.</p>
+      </div>
+    </noscript>
+    
+    <div id="root">
+      <!-- Скелетон загрузки -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 100vh; background: #f5f5f5;">
+        <div style="text-align: center;">
+          <div class="loading-skeleton" style="width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 20px;"></div>
+          <div class="loading-skeleton" style="width: 200px; height: 20px; margin: 10px auto;"></div>
+          <div class="loading-skeleton" style="width: 150px; height: 16px; margin: 10px auto;"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- T-ID SDK для авторизации через Т-Банк -->
+    <script src="https://sso-forms-prod.t-static.ru/tid/widget.js"></script>
+    
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Аналитика и мониторинг (опционально) -->
+    <script>
+      // Простой мониторинг производительности
+      window.addEventListener('load', function() {
+        if ('performance' in window) {
+          const perfData = performance.getEntriesByType('navigation')[0];
+          console.log('Время загрузки страницы:', perfData.loadEventEnd - perfData.loadEventStart, 'мс');
+        }
+      });
+      
+      // Обработка ошибок
+      window.addEventListener('error', function(e) {
+        console.error('Ошибка приложения:', e.error);
+      });
+    </script>
   </body>
 </html>

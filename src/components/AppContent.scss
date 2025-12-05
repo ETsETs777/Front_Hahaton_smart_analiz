@@ -1,0 +1,12 @@
+.main-layout {
+  @media (max-width: 768px) {
+    margin-left: 0 !important;
+    padding-top: var(--sider-mobile-height, 0px) !important;
+    transition: padding-top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    :global(.ant-layout-content) {
+      padding: 1rem !important;
+    }
+  }
+}
+

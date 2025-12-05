@@ -1,0 +1,177 @@
+/* Стили для FullCalendar */
+.fc {
+    border: none;
+    font-size: 11.5px !important;
+}
+@media (max-width: 1100px) {
+    .fc {
+        font-size: 10px !important;
+    }
+}
+
+/* Заголовок ресурсов (Спорт-комнаты) */
+.fc-resource-area-header {
+    border: none !important;
+    font-weight: 600;
+    padding: 8px !important;
+    font-size: 10px !important;
+}
+
+.dark .fc-resource-area-header {
+    background-color: #3a527a !important;
+}
+
+/* Ячейки с названиями ресурсов */
+.fc-datagrid-cell-main {
+    font-weight: 500;
+    padding: 6px !important;
+    font-size: 10px !important;
+}
+
+.dark .fc-datagrid-cell-main {
+    background-color: #23272f !important;
+}
+
+/* Линии сетки */
+.fc-theme-standard .fc-list,
+.fc-theme-standard .fc-list-day-cushion,
+.fc-theme-standard td,
+.fc-theme-standard th {
+    border-color: #e5e7eb;
+}
+
+.dark .fc-theme-standard .fc-list,
+.dark .fc-theme-standard .fc-list-day-cushion,
+.dark .fc-theme-standard td,
+.dark .fc-theme-standard th {
+    border-color: #374151;
+}
+
+/* Заголовок календаря (название месяца) */
+.fc .fc-toolbar-title {
+    font-size: 1.25em;
+    font-weight: 600;
+}
+
+.dark .fc-scrollgrid-sync-inner {
+    background: #374151 !important;
+}
+/* Кнопки навигации */
+.fc .fc-button {
+    border: 1px solid #d1d5db !important;
+    box-shadow: none !important;
+}
+
+.dark .fc .fc-button {
+}
+
+.fc .fc-button:hover {
+}
+.dark .fc .fc-button:hover {
+}
+
+/* События (слоты) */
+.fc-event {
+    border-radius: 4px;
+    padding: 2px !important;
+    font-size: 9px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fc-event:hover {
+    opacity: 0.92;
+}
+
+.fc-event-main-frame {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.fc-timegrid-slot,
+.fc-timegrid-slot-lane {
+    height: 1px !important;
+}
+
+.fc-timegrid-slot-label {
+    vertical-align: top !important;
+    line-height: 1;
+}
+
+.fc .fc-timegrid-slot {
+    min-height: 1px !important;
+
+    height: 1px !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+}
+
+.fc .fc-timegrid-axis {
+    font-size: 9px !important;
+    padding: 0 1px !important;
+
+    line-height: 1 !important;
+}
+.dark .fc .fc-timegrid-axis {
+    background-color: #3a527a !important;
+}
+.fc .fc-event {
+    font-size: 12px !important;
+    padding: 2px 6px !important;
+    min-height: 6px !important;
+    border: 1px solid #22c55e !important;
+    background: linear-gradient(180deg, #22c55e, #16a34a);
+    color: #0b1f16;
+    line-height: 1.1 !important;
+}
+.fc .fc-timegrid-col-frame {
+    padding: 0 !important;
+
+    margin: 0 !important;
+}
+.fc .fc-timegrid-slot-label {
+    font-size: 10.6px !important;
+    padding: 1 1px !important;
+    line-height: 1 !important;
+}
+.fc .fc-timegrid-slots {
+    border-radius: 0 !important;
+}
+.fc .fc-timegrid-divider {
+    border: 1px solid #d1d5db !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Цвета событий (слотов) для светлой и тёмной темы */
+.fc-event.free-slot {
+    border: 1px solid #22c55e !important;
+}
+
+.dark .fc-event.free-slot {
+    border: 1px solid #22c55e !important;
+}
+
+.fc-event.busy-slot {
+    background-color: #ec0404 !important;
+    border: none !important;
+}
+
+/* Стили для прошедших событий */
+.fc-event.past-event {
+    opacity: 0.7;
+    background-color: #6b7280 !important;
+    border-color: #6b7280 !important;
+}
+
+.dark .fc-event.past-event {
+    opacity: 0.7;
+    background-color: #4b5563 !important;
+    border-color: #4b5563 !important;
+}
+
+/* Принудительное отображение всех событий */
+.fc-event {
+    display: block !important;
+    visibility: visible !important;
+}
