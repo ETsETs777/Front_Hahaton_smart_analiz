@@ -1,0 +1,18 @@
+query GetCurrentUser {
+  getCurrentUser {
+    id
+    email
+    name
+    imageUrl
+    isActive
+    isEmailConfirmed
+    jwtToken
+    createdAt
+    updatedAt
+    logo {
+      id
+      url
+      avatarUrl
+    }
+  }
+}

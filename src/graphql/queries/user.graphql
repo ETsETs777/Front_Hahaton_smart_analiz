@@ -1,0 +1,37 @@
+query Me {
+  me {
+    id
+    email
+    name
+    imageUrl
+    isActive
+    isEmailConfirmed
+    jwtToken
+    createdAt
+    updatedAt
+    accounts {
+      id
+      name
+      type
+      balance
+    }
+    transactions {
+      id
+      type
+      amount
+    }
+    budgets {
+      id
+      name
+      category
+      type
+      targetAmount
+      currentAmount
+    }
+    logo {
+      id
+      url
+      avatarUrl
+    }
+  }
+}

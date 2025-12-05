@@ -1,0 +1,13 @@
+query GetMessageStatus($messageId: String!) {
+  getMessageStatus(messageId: $messageId) {
+    id
+    status
+    userMessage
+    aiResponse
+    error
+    userId
+    createdAt
+    updatedAt
+  }
+}
+

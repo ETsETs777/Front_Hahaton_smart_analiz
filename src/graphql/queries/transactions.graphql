@@ -1,0 +1,94 @@
+query GetTransactions {
+  transactions {
+    id
+    type
+    amount
+    description
+    date
+    category
+    receiptUrl
+    isRecurring
+    recurringInterval
+    nextRecurringDate
+    status
+    accountId
+    account {
+      id
+      name
+      bankType
+    }
+    createdAt
+    updatedAt
+  }
+}
+
+query GetTransactionsByAccount($accountId: String!) {
+  transactionsByAccount(accountId: $accountId) {
+    id
+    type
+    amount
+    description
+    date
+    category
+    receiptUrl
+    isRecurring
+    status
+    createdAt
+    updatedAt
+  }
+}
+
+query GetTransaction($id: String!) {
+  transaction(id: $id) {
+    id
+    type
+    amount
+    description
+    date
+    category
+    receiptUrl
+    isRecurring
+    recurringInterval
+    nextRecurringDate
+    lastProcessed
+    status
+    accountId
+    account {
+      id
+      name
+      type
+      bankType
+    }
+    createdAt
+    updatedAt
+  }
+}
+
+query GetTransactionsList($input: TransactionListInput) {
+  transactionsList(input: $input) {
+    totalCount
+    data {
+      id
+      type
+      amount
+      description
+      date
+      category
+      receiptUrl
+      isRecurring
+      recurringInterval
+      nextRecurringDate
+      lastProcessed
+      status
+      accountId
+      account {
+        id
+        name
+        type
+        bankType
+      }
+      createdAt
+      updatedAt
+    }
+  }
+}

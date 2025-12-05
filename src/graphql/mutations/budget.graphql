@@ -1,0 +1,38 @@
+mutation CreateBudget($input: BudgetCreateInput!) {
+  createBudget(input: $input) {
+    id
+    name
+    category
+    type
+    targetAmount
+    currentAmount
+    lastAlertSent
+    userId
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateBudget($id: String!, $input: BudgetUpdateInput!) {
+  updateBudget(id: $id, input: $input) {
+    id
+    name
+    category
+    type
+    targetAmount
+    currentAmount
+    lastAlertSent
+    userId
+    updatedAt
+  }
+}
+
+mutation DeleteBudget($id: String!) {
+  deleteBudget(id: $id) {
+    id
+    name
+    category
+    type
+    targetAmount
+  }
+}

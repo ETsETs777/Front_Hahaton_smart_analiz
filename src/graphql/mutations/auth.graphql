@@ -1,0 +1,29 @@
+mutation Register($input: RegisterInput!) {
+  register(input: $input) {
+    id
+    email
+    name
+    isEmailConfirmed
+    jwtToken
+  }
+}
+
+mutation Login($input: LoginInput!) {
+  login(input: $input) {
+    id
+    email
+    name
+    imageUrl
+    isActive
+    isEmailConfirmed
+    jwtToken
+  }
+}
+
+mutation ConfirmEmail($input: ConfirmEmailInput!) {
+  confirmEmail(input: $input) {
+    id
+    email
+    isEmailConfirmed
+  }
+}

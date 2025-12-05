@@ -1,0 +1,43 @@
+query GetAccounts {
+  accounts {
+    id
+    name
+    type
+    balance
+    isDefault
+    bankType
+    accountNumber
+    createdAt
+    updatedAt
+    transactions {
+      id
+      type
+      amount
+      date
+    }
+  }
+}
+
+query GetAccount($id: String!) {
+  account(id: $id) {
+    id
+    name
+    type
+    balance
+    isDefault
+    bankType
+    accountNumber
+    createdAt
+    updatedAt
+    transactions {
+      id
+      type
+      amount
+      description
+      date
+      category
+      status
+    }
+  }
+}
+

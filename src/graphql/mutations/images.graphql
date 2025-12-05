@@ -1,0 +1,17 @@
+mutation UpdateImageStore($input: ImageStoreUpdateInput!) {
+  updateImageStore(input: $input) {
+    id
+    name
+    description
+    ext
+    url
+    updatedAt
+    createdAt
+    width
+    height
+    downloadUrl
+    avatarUrl
+    isVisible
+    checksum
+  }
+}

@@ -1,0 +1,10 @@
+mutation SyncTBankAccount($accountId: String!) {
+  syncTBankAccount(accountId: $accountId)
+}
+
+mutation SyncAllTBankAccounts {
+  syncAllTBankAccounts {
+    accountsSynced
+    totalTransactions
+  }
+}

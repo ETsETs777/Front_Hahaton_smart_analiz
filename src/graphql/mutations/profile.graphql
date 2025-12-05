@@ -1,0 +1,34 @@
+mutation UpdateProfile($input: UserUpdateInput!) {
+  updateProfile(input: $input) {
+    id
+    email
+    name
+    imageUrl
+    isActive
+    isEmailConfirmed
+    createdAt
+    updatedAt
+    logo {
+      id
+      url
+      avatarUrl
+    }
+  }
+}
+
+mutation ChangePassword($input: PasswordChangeInput!) {
+  changePassword(input: $input) {
+    id
+    email
+    name
+    updatedAt
+  }
+}
+
+mutation DeleteProfile {
+  deleteProfile {
+    id
+    email
+    name
+  }
+}

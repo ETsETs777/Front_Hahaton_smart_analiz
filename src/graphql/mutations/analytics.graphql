@@ -1,0 +1,25 @@
+mutation CreateAnalytics($input: AnalyticsRequestInput!) {
+  createAnalytics(input: $input) {
+    id
+    type
+    status
+    accountId
+    dateFrom
+    dateTo
+    comment
+    createdAt
+    account {
+      id
+      name
+    }
+  }
+}
+
+mutation RefreshAnalytics($id: String!) {
+  refreshAnalytics(id: $id) {
+    id
+    status
+    updatedAt
+  }
+}
+

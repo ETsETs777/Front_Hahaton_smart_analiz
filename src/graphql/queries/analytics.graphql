@@ -1,0 +1,57 @@
+query GetAnalyticsTask($id: String!) {
+  analyticsTask(id: $id) {
+    id
+    type
+    status
+    accountId
+    dateFrom
+    dateTo
+    comment
+    result
+    error
+    userId
+    account {
+      id
+      name
+    }
+    createdAt
+    updatedAt
+  }
+}
+
+query GetAnalyticsTasks($filter: AnalyticsFilterInput) {
+  analyticsTasks(filter: $filter) {
+    id
+    type
+    status
+    accountId
+    dateFrom
+    dateTo
+    comment
+    result
+    error
+    createdAt
+    updatedAt
+    account {
+      id
+      name
+    }
+  }
+}
+
+query GetActiveAnalyticsJobs {
+  activeAnalyticsJobs {
+    id
+    type
+    status
+    accountId
+    dateFrom
+    dateTo
+    comment
+    createdAt
+    account {
+      id
+      name
+    }
+  }
+}

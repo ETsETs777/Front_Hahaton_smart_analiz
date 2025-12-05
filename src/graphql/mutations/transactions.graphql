@@ -1,0 +1,41 @@
+mutation CreateTransaction($input: TransactionCreateInput!) {
+  createTransaction(input: $input) {
+    id
+    type
+    amount
+    description
+    date
+    category
+    receiptUrl
+    isRecurring
+    recurringInterval
+    status
+    accountId
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateTransaction($id: String!, $input: TransactionUpdateInput!) {
+  updateTransaction(id: $id, input: $input) {
+    id
+    type
+    amount
+    description
+    date
+    category
+    receiptUrl
+    isRecurring
+    recurringInterval
+    status
+    updatedAt
+  }
+}
+
+mutation DeleteTransaction($id: String!) {
+  deleteTransaction(id: $id) {
+    id
+    description
+    amount
+  }
+}

@@ -1,0 +1,30 @@
+query GetBudgets {
+  budgets {
+    id
+    name
+    category
+    type
+    targetAmount
+    currentAmount
+    lastAlertSent
+    userId
+    createdAt
+    updatedAt
+  }
+}
+
+query GetBudget($id: String!) {
+  budget(id: $id) {
+    id
+    name
+    category
+    type
+    targetAmount
+    currentAmount
+    lastAlertSent
+    userId
+    createdAt
+    updatedAt
+  }
+}
+

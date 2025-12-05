@@ -1,0 +1,145 @@
+// Переменные для таблицы
+$table-row-height: 40px;
+$table-cell-padding: 8px;
+$table-cell-padding-compact: 6px;
+$table-font-size: 13px;
+$table-font-size-small: 12px;
+$table-icon-size: 14px;
+$table-border-radius: 6px;
+$table-pagination-height: 28px;
+$table-button-height: 24px;
+$table-transition: 0.15s ease;
+$table-border-width: 6px;
+
+$table-bg: var(--table-bg);
+$table-header-bg: var(--table-header-bg);
+$table-header-text: var(--table-header-text);
+$table-row-hover: var(--table-row-hover);
+$table-border: var(--table-border);
+$table-footer-bg: var(--table-footer-bg);
+$table-footer-text: var(--table-footer-text);
+$table-pagination-bg: var(--table-pagination-bg);
+$table-pagination-text: var(--table-pagination-text);
+$table-pagination-active-bg: var(--table-pagination-active-bg);
+$table-pagination-active-text: var(--table-pagination-active-text);
+$table-footer-border-width: var(--table-footer-border-width);
+
+/* Компактные стили для DataTable */
+.dataTable {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+
+    // обертка
+    :global(.ant-table-wrapper) {
+        height: 100%;
+    }
+
+    :global(.ant-spin-nested-loading) {
+        height: 100%;
+    }
+
+    :global(.ant-spin-container) {
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    :global(.ant-table) {
+        flex: auto;
+        overflow: hidden;
+        border-radius: $table-border-radius;
+        overflow: hidden;
+    }
+
+    :global(.ant-table-container) {
+        height: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        border-radius: $table-border-radius;
+    }
+
+    :global(.ant-table-header) {
+        flex: none;
+    }
+
+    :global(.ant-table-body) {
+        flex: auto;
+        overflow: scroll;
+        border-width: $table-border-width;
+        border-top-width: 0px;
+        border-bottom-width: $table-footer-border-width;
+        border-color: $table-border;
+    }
+
+    :global(.ant-table-pagination) {
+        flex: none;
+    }
+
+    // заголовки
+    :global(.ant-table-thead > tr > th) {
+        padding: $table-cell-padding !important;
+        font-size: $table-font-size;
+        font-weight: 600;
+        background-color: $table-header-bg;
+        color: $table-header-text;
+        border-bottom: 1px solid $table-border;
+        padding-left: 16px !important;
+        padding-block: 16px !important;
+
+        &:before {
+            display: none;
+        }
+    }
+
+    //  ячейки таблицы
+    :global(.ant-table-tbody > tr:not(.ant-table-measure-row)) {
+        height: $table-row-height;
+
+        > td {
+            padding: $table-cell-padding-compact $table-cell-padding !important;
+            font-size: $table-font-size;
+            border-bottom: 1px solid $table-border;
+        }
+
+        &:hover > td {
+            background-color: $table-row-hover !important;
+            transition: background-color $table-transition;
+        }
+
+        //  кнопки в таблице
+        .ant-btn {
+            height: $table-button-height;
+            padding: 0 $table-cell-padding;
+            font-size: $table-font-size-small;
+        }
+
+        //  иконки
+        .anticon {
+            font-size: $table-icon-size;
+        }
+    }
+
+    // Стили пагинации
+    :global(.ant-pagination) {
+        font-size: $table-font-size;
+        margin: 0px !important;
+        border-width: $table-border-width;
+        border-top-width: 0px;
+        border-color: $table-border;
+        border-radius: 0px 0px $table-border-radius $table-border-radius;
+        padding-block: 6px !important;
+        padding-inline: 16px !important;
+    }
+
+    :global(.ant-pagination-item) {
+        min-width: $table-pagination-height;
+        height: $table-pagination-height;
+        line-height: $table-pagination-height - 2px;
+    }
+
+    :global(.ant-pagination-prev),
+    :global(.ant-pagination-next) {
+        min-width: $table-pagination-height;
+        height: $table-pagination-height;
+        line-height: $table-pagination-height - 2px;
+    }
+}

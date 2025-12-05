@@ -1,0 +1,42 @@
+mutation CreateAccount($input: AccountCreateInput!) {
+  createAccount(input: $input) {
+    id
+    name
+    type
+    balance
+    isDefault
+    bankType
+    accountNumber
+    createdAt
+    updatedAt
+  }
+}
+
+mutation UpdateAccount($id: String!, $input: AccountUpdateInput!) {
+  updateAccount(id: $id, input: $input) {
+    id
+    name
+    type
+    balance
+    isDefault
+    bankType
+    accountNumber
+    updatedAt
+  }
+}
+
+mutation DeleteAccount($id: String!) {
+  deleteAccount(id: $id) {
+    id
+    name
+  }
+}
+
+mutation SetDefaultAccount($id: String!) {
+  setDefaultAccount(id: $id) {
+    id
+    name
+    isDefault
+  }
+}
+
