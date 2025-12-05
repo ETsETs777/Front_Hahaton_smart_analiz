@@ -1,16 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import { routes } from '@/routes'
+import '@ant-design/v5-patch-for-react-19'
+import dayjs from 'dayjs'
+import 'dayjs/locale/ru'
+import './styles/global.scss'
 
-function App() {
-  return (
-    <div>
-      <h1>Front Hahaton Smart Analiz</h1>
-    </div>
-  )
-}
+dayjs.locale('ru')
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+const router = createBrowserRouter(routes)
+
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+        <RouterProvider router={router} />
+    </StrictMode>
 )
