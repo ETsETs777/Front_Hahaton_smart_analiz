@@ -1,8 +1,8 @@
-export const truncate = (str: string, length: number, suffix: string = '...'): string => {
-  if (str.length <= length) {
+export const truncate = (str: string, maxLength: number, suffix: string = '...'): string => {
+  if (str.length <= maxLength) {
     return str
   }
-  return str.slice(0, length) + suffix
+  return str.slice(0, maxLength - suffix.length) + suffix
 }
 
 export const capitalize = (str: string): string => {
@@ -16,6 +16,14 @@ export const capitalizeWords = (str: string): string => {
   })
 }
 
+export const camelToKebab = (str: string): string => {
+  return str.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase()
+}
+
+export const kebabToCamel = (str: string): string => {
+  return str.replace(/-([a-z])/g, (g) => g[1].toUpperCase())
+}
+
 export const slugify = (str: string): string => {
   return str
     .toLowerCase()
@@ -23,19 +31,6 @@ export const slugify = (str: string): string => {
     .replace(/[^\w\s-]/g, '')
     .replace(/[\s_-]+/g, '-')
     .replace(/^-+|-+$/g, '')
-}
-
-export const camelCase = (str: string): string => {
-  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
-    return index === 0 ? word.toLowerCase() : word.toUpperCase()
-  }).replace(/\s+/g, '')
-}
-
-export const kebabCase = (str: string): string => {
-  return str
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/[\s_]+/g, '-')
-    .toLowerCase()
 }
 
 export const removeAccents = (str: string): string => {
@@ -64,25 +59,33 @@ export const unescapeHtml = (str: string): string => {
   return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, (m) => map[m])
 }
 
+export const extractEmails = (str: string): string[] => {
+  const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g
+  return str.match(emailRegex) || []
+}
+
+export const extractUrls = (str: string): string[] => {
+  const urlRegex = /(https?:\/\/[^\s]+)/g
+  return str.match(urlRegex) || []
+}
+
 export const maskEmail = (email: string): string => {
   const [localPart, domain] = email.split('@')
   if (!localPart || !domain) return email
   
-  const maskedLocal = localPart.length > 2
+  const maskedLocal = localPart.length > 2 
     ? localPart[0] + '*'.repeat(localPart.length - 2) + localPart[localPart.length - 1]
-    : localPart[0] + '*'
+    : '*'.repeat(localPart.length)
   
   return `${maskedLocal}@${domain}`
 }
 
 export const maskPhone = (phone: string): string => {
   const cleaned = phone.replace(/\D/g, '')
-  if (cleaned.length < 7) return phone
+  if (cleaned.length < 4) return phone
   
-  const start = cleaned.slice(0, 2)
-  const end = cleaned.slice(-2)
-  const middle = '*'.repeat(cleaned.length - 4)
-  
-  return `${start}${middle}${end}`
+  const visible = cleaned.slice(-4)
+  const masked = '*'.repeat(cleaned.length - 4)
+  return masked + visible
 }
 
