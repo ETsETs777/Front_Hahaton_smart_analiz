@@ -4,4 +4,5 @@ export * from './array-helpers'
 export * from './storage'
 export * from './error-handler'
 export * from './date-helpers'
+export * from './string-helpers'
 
