@@ -5,4 +5,6 @@ export * from './storage'
 export * from './error-handler'
 export * from './date-helpers'
 export * from './string-helpers'
+export * from './color-helpers'
+export * from './object-helpers'
 
