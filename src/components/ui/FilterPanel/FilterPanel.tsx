@@ -6,21 +6,17 @@ import './FilterPanel.scss'
 interface FilterPanelProps {
   children: ReactNode
   onClear?: () => void
-  showClear?: boolean
   title?: string
-  className?: string
 }
 
 export const FilterPanel = ({
   children,
   onClear,
-  showClear = true,
   title = 'Фильтры',
-  className = '',
 }: FilterPanelProps) => {
   return (
     <Card
-      className={`filter-panel ${className}`}
+      className="filter-panel"
       title={
         <Space>
           <FilterOutlined />
@@ -28,7 +24,7 @@ export const FilterPanel = ({
         </Space>
       }
       extra={
-        showClear && onClear && (
+        onClear && (
           <Button
             type="text"
             icon={<ClearOutlined />}

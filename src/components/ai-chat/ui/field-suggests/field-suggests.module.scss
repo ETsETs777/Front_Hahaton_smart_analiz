@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 12px;
+  background-color: var(--ai-chat-surface-alt, #f5f5f5);
+  border-radius: 8px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ai-chat-text, #000);
+  margin-bottom: 4px;
+}
+
+.suggests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.suggest {
+  cursor: pointer;
+  padding: 8px 12px;
+  margin: 0;
+  background-color: var(--ai-chat-surface, #fff);
+  border: 1px solid var(--ai-chat-border, #d9d9d9);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+
+  &:hover {
+    border-color: var(--ai-chat-accent, #1890ff);
+    background-color: var(--ai-chat-accent, #1890ff);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    .fieldPath {
+      color: rgba(255, 255, 255, 0.85);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.fieldName {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.fieldPath {
+  font-size: 11px;
+  color: var(--ai-chat-muted, #8c8c8c);
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+

@@ -1,0 +1,66 @@
+.widgetRoot {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1200;
+}
+
+.trigger {
+  pointer-events: auto;
+  border: none;
+  border-radius: 50%; 
+  box-shadow: var(--ai-chat-trigger-shadow, 0 12px 24px rgba(255, 107, 53, 0.25)) !important;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  background: #ffffff !important;
+  width: 72px !important;
+  height: 72px !important;
+
+  :global(.ant-float-btn-body) {
+    background: #ffffff !important;
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  :global(.ant-float-btn) {
+    background: #ffffff !important;
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  :global(.ant-float-btn-icon) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: #ffffff !important;
+  }
+
+  :global(.ant-float-btn-content) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+
+  :global(.logo-container) {
+    background: #ffffff;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:hover,
+  &:focus {
+    // transform: translateY(-4px) scale(1.08);
+    box-shadow: var(--ai-chat-trigger-shadow, 0 16px 32px rgba(42, 204, 10, 0.35)) !important;
+  }
+}
+
+.triggerActive {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: var(--ai-chat-trigger-shadow, 0 16px 32px rgba(7, 214, 52, 0.35)) !important;
+}

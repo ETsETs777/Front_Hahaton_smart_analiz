@@ -1,0 +1,27 @@
+﻿.container {
+  position: absolute;
+  z-index: 1300;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px; 
+  box-shadow: var(--ai-chat-shadow-strong, 0 12px 32px rgba(0, 0, 0, 0.08));
+  overflow: hidden;
+  background: var(--ai-chat-surface);
+  pointer-events: auto; 
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px 12px;
+  background: var(--ai-chat-surface);
+  cursor: move;
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 8px 12px;
+  }
+}

@@ -1,0 +1,57 @@
+.messagesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  // Кастомный скроллбар
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--ai-chat-muted) 30%, transparent);
+    border-radius: 3px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: color-mix(in srgb, var(--ai-chat-muted) 50%, transparent);
+    }
+  }
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+}
+
+.loadingText {
+  margin-top: 12px;
+  color: var(--ai-chat-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.emptyContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 32px;
+
+  :global(.ant-empty-description) {
+    color: var(--ai-chat-muted);
+  }
+}
+
+

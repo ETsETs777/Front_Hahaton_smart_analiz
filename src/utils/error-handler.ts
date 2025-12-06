@@ -52,3 +52,4 @@ export const isAuthError = (error: Error | ApolloError): boolean => {
   }
   return false
 }
+

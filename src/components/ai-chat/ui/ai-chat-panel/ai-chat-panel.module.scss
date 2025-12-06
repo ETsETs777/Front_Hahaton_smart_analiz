@@ -1,0 +1,158 @@
+﻿.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--ai-chat-surface);
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 20px;
+  background: var(--ai-chat-surface);
+  display: flex;
+  flex-direction: column;
+}
+
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 48px 32px;
+  min-height: 100%;
+  text-align: center;
+}
+
+.introIcon {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0px;
+  flex-shrink: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.assistantGif {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.introContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 480px;
+}
+
+.introPrimary {
+  font-size: 32px;
+  line-height: 1.6;
+  color: var(--ai-chat-text);
+  font-weight: 500;
+}
+
+.helpButtons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.introSecondary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ai-chat-muted);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--ai-chat-surface);
+  flex-shrink: 0;
+}
+
+.statusRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ai-chat-muted);
+}
+
+.composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.composerInput {
+  flex: 1;
+
+  :global(.ant-input) {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  :global(textarea.ant-input) {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 12px 16px;
+    border-radius: 16px; /* Закругленные углы для поля ввода */
+  }
+
+  :global(.ant-input::placeholder),
+  :global(textarea.ant-input::placeholder) {
+    color: var(--ai-chat-muted);
+  }
+}
+
+.sendButton {
+  flex-shrink: 0;
+  margin-bottom: 2px;
+   :global(.ant-btn-icon) {
+    svg {
+      fill: var(--ai-send-button-icon) !important;
+    }
+  }
+}
+
+.resetButton {
+  color: var(--ai-chat-muted) !important;
+  font-size: 13px;
+  align-self: center;
+
+  &:hover,
+  &:focus {
+    color: var(--ai-chat-text) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    padding: 16px;
+  }
+
+  .footer {
+    padding: 12px 16px;
+  }
+
+  .intro {
+    padding: 24px 16px;
+  }
+}
+
