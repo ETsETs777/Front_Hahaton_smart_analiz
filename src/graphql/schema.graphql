@@ -1,0 +1,903 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Транзакция пользователя"""
+type TransactionEntity {
+  """Уникальный идентификатор"""
+  id: ID!
+
+  """Тип транзакции"""
+  type: TransactionType!
+
+  """Сумма транзакции"""
+  amount: Float!
+
+  """Описание транзакции"""
+  description: String
+
+  """Дата транзакции"""
+  date: DateTime!
+
+  """Категория транзакции"""
+  category: String!
+
+  """URL чека"""
+  receiptUrl: String
+
+  """Является ли повторяющейся"""
+  isRecurring: Boolean!
+
+  """Интервал повторения"""
+  recurringInterval: RecurringInterval
+
+  """Следующая дата повторения"""
+  nextRecurringDate: DateTime
+
+  """Последняя обработка повторяющейся транзакции"""
+  lastProcessed: DateTime
+
+  """Статус транзакции"""
+  status: TransactionStatus!
+
+  """Идентификатор пользователя"""
+  userId: ID!
+
+  """Идентификатор счета"""
+  accountId: ID!
+
+  """Пользователь-владелец"""
+  user: UserEntity!
+
+  """Счет транзакции"""
+  account: AccountEntity!
+
+  """Дата создания"""
+  createdAt: DateTime!
+
+  """Дата обновления"""
+  updatedAt: DateTime!
+}
+
+"""Тип транзакции"""
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""Интервал повторения транзакции"""
+enum RecurringInterval {
+  DAILY
+  WEEKLY
+  MONTHLY
+  YEARLY
+}
+
+"""Статус транзакции"""
+enum TransactionStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
+"""Счет пользователя"""
+type AccountEntity {
+  """Уникальный идентификатор"""
+  id: ID!
+
+  """Название счета"""
+  name: String!
+
+  """Тип счета"""
+  type: AccountType!
+
+  """Баланс счета"""
+  balance: Float!
+
+  """Является ли счетом по умолчанию"""
+  isDefault: Boolean!
+
+  """Тип банка"""
+  bankType: BankType
+
+  """Номер счета в банке"""
+  accountNumber: String
+
+  """Идентификатор пользователя"""
+  userId: ID!
+
+  """Пользователь-владелец"""
+  user: UserEntity!
+
+  """Транзакции по счету"""
+  transactions: [TransactionEntity!]
+
+  """Дата создания"""
+  createdAt: DateTime!
+
+  """Дата обновления"""
+  updatedAt: DateTime!
+}
+
+"""
+Тип счета: CURRENT - текущий счет для повседневных операций, SAVINGS - накопительный счет, CREDIT - кредитный счет, INVESTMENT - инвестиционный счет, DEPOSIT - депозитный счет, BUSINESS - бизнес-счет
+"""
+enum AccountType {
+  CURRENT
+  SAVINGS
+  CREDIT
+  INVESTMENT
+  DEPOSIT
+  BUSINESS
+}
+
+"""Тип банка"""
+enum BankType {
+  CENTER_BANK
+  INVEST
+  SBERBANK
+  ALFA_BANK
+  TBANK
+}
+
+"""Бюджет пользователя"""
+type BudgetEntity {
+  """Уникальный идентификатор"""
+  id: ID!
+
+  """Название бюджета"""
+  name: String!
+
+  """Категория бюджета"""
+  category: BudgetCategory!
+
+  """Тип бюджета"""
+  type: BudgetType!
+
+  """Целевая сумма бюджета"""
+  targetAmount: Float!
+
+  """Текущая потраченная сумма"""
+  currentAmount: Float!
+
+  """Дата последнего отправленного уведомления"""
+  lastAlertSent: DateTime
+
+  """Идентификатор пользователя"""
+  userId: ID!
+
+  """Пользователь-владелец"""
+  user: UserEntity!
+
+  """Дата создания"""
+  createdAt: DateTime!
+
+  """Дата обновления"""
+  updatedAt: DateTime!
+}
+
+"""
+Категория бюджета: ENTERTAINMENT - Развлечения, CINEMA - Кино, RESTAURANTS - Рестораны, TRANSPORT - Транспорт, GROCERIES - Продукты, CLOTHING - Одежда, HEALTH - Здоровье, EDUCATION - Образование, UTILITIES - Коммунальные услуги, INTERNET - Интернет, MOBILE - Мобильная связь, TECH - Техника, GIFTS - Подарки, TRAVEL - Путешествия, SPORTS - Спорт, BOOKS - Книги, BEAUTY - Красота, HOME - Дом, PETS - Домашние животные, OTHER - Другое
+"""
+enum BudgetCategory {
+  ENTERTAINMENT
+  CINEMA
+  RESTAURANTS
+  TRANSPORT
+  GROCERIES
+  CLOTHING
+  HEALTH
+  EDUCATION
+  UTILITIES
+  INTERNET
+  MOBILE
+  TECH
+  GIFTS
+  TRAVEL
+  SPORTS
+  BOOKS
+  BEAUTY
+  HOME
+  PETS
+  OTHER
+}
+
+"""
+Тип бюджета: MONTHLY - Месячный, WEEKLY - Недельный, YEARLY - Годовой, CUSTOM - Произвольный
+"""
+enum BudgetType {
+  MONTHLY
+  WEEKLY
+  YEARLY
+  CUSTOM
+}
+
+type ImageEntity {
+  id: ID!
+
+  """Original file name with extension: "image.jpg", "document.pdf", etc"""
+  name: String!
+
+  """File description if needed"""
+  description: String
+
+  """File extension with dot: ".jpg", ".png", ".pdf", etc"""
+  ext: String!
+  url: String!
+  updatedAt: String!
+  createdAt: DateTime!
+
+  """Image width in pixels after resizing"""
+  width: Int
+
+  """Image height in pixels after resizing"""
+  height: Int
+  downloadUrl: String!
+  avatarUrl: String!
+
+  """Is image visible to users"""
+  isVisible: Boolean
+
+  """Check sum of file content"""
+  checksum: String
+}
+
+"""Пользователь системы"""
+type UserEntity {
+  """Идентификатор пользователя"""
+  id: ID!
+
+  """Адрес электронной почты пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  name: String
+
+  """URL изображения профиля"""
+  imageUrl: String
+
+  """Флаг активности пользователя"""
+  isActive: Boolean!
+
+  """Флаг подтверждения адреса электронной почты"""
+  isEmailConfirmed: Boolean!
+
+  """Текущий JWT токен пользователя для авторизации"""
+  jwtToken: String
+
+  """Счета пользователя"""
+  accounts: [AccountEntity!]
+
+  """Транзакции пользователя"""
+  transactions: [TransactionEntity!]
+
+  """Бюджеты пользователя"""
+  budgets: [BudgetEntity!]
+
+  """Аватар пользователя"""
+  logo: ImageEntity
+
+  """Дата и время создания пользователя"""
+  createdAt: DateTime!
+
+  """Дата и время последнего обновления пользователя"""
+  updatedAt: DateTime!
+}
+
+"""Задача финансовой аналитики"""
+type AnalyticsTaskEntity {
+  """Уникальный идентификатор задачи"""
+  id: ID!
+
+  """Тип аналитики"""
+  type: AnalyticsType!
+
+  """Статус задачи"""
+  status: AnalyticsStatus!
+
+  """Идентификатор счета (null для всех счетов)"""
+  accountId: ID
+
+  """Дата начала периода"""
+  dateFrom: DateTime
+
+  """Дата окончания периода"""
+  dateTo: DateTime
+
+  """Комментарий пользователя"""
+  comment: String
+
+  """Результат аналитики (JSON)"""
+  result: String
+
+  """Ошибка при обработке"""
+  error: String
+
+  """Идентификатор пользователя"""
+  userId: ID!
+
+  """Пользователь-владелец"""
+  user: UserEntity!
+
+  """Счет для аналитики"""
+  account: AccountEntity
+
+  """Дата создания"""
+  createdAt: DateTime!
+
+  """Дата обновления"""
+  updatedAt: DateTime!
+}
+
+"""Тип финансовой аналитики"""
+enum AnalyticsType {
+  SPENDING_PATTERNS
+  INCOME_ANALYSIS
+  BUDGET_COMPLIANCE
+  CATEGORY_BREAKDOWN
+  TREND_ANALYSIS
+}
+
+"""Статус задачи аналитики"""
+enum AnalyticsStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+"""Сообщение чата с финансовым ботом"""
+type ChatMessageEntity {
+  """Уникальный идентификатор"""
+  id: ID!
+
+  """Статус обработки сообщения"""
+  status: ChatMessageStatus!
+
+  """Сообщение пользователя"""
+  userMessage: String!
+
+  """Ответ от нейросети"""
+  aiResponse: String
+
+  """Ошибка обработки"""
+  error: String
+
+  """Идентификатор пользователя"""
+  userId: ID!
+
+  """Пользователь-отправитель"""
+  user: UserEntity!
+
+  """Дата создания"""
+  createdAt: DateTime!
+
+  """Дата обновления"""
+  updatedAt: DateTime!
+}
+
+"""Статус сообщения чата"""
+enum ChatMessageStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+"""Пагинированный список транзакций"""
+type PaginatedTransactionResponse {
+  """Records count with filter without pagination"""
+  queryCount: Int!
+
+  """Records count without filter and pagination"""
+  totalCount: Int!
+
+  """Список транзакций"""
+  data: [TransactionEntity!]!
+}
+
+"""Результат синхронизации счетов"""
+type SyncResult {
+  """Количество синхронизированных счетов"""
+  accountsSynced: Float!
+
+  """Общее количество синхронизированных транзакций"""
+  totalTransactions: Float!
+}
+
+type Query {
+  healthCheck: String!
+
+  """Получение информации о текущем авторизованном пользователе"""
+  getCurrentUser: UserEntity!
+
+  """Получение всех счетов пользователя"""
+  accounts: [AccountEntity!]!
+
+  """Получение счета по идентификатору"""
+  account(
+    """Идентификатор счета"""
+    id: String!
+  ): AccountEntity!
+
+  """Получение всех транзакций пользователя"""
+  transactions: [TransactionEntity!]!
+
+  """Получение транзакций с фильтрами, сортировкой и пагинацией"""
+  transactionsList(
+    """Фильтры, сортировка и пагинация"""
+    input: TransactionListInput
+  ): PaginatedTransactionResponse!
+
+  """Получение транзакций по счету"""
+  transactionsByAccount(
+    """Идентификатор счета"""
+    accountId: String!
+  ): [TransactionEntity!]!
+
+  """Получение транзакции по идентификатору"""
+  transaction(
+    """Идентификатор транзакции"""
+    id: String!
+  ): TransactionEntity!
+
+  """Получение всех бюджетов пользователя"""
+  budgets: [BudgetEntity!]!
+
+  """Получение бюджета по идентификатору"""
+  budget(
+    """Идентификатор бюджета"""
+    id: String!
+  ): BudgetEntity!
+
+  """Получение задачи аналитики по идентификатору"""
+  analyticsTask(
+    """Идентификатор задачи"""
+    id: String!
+  ): AnalyticsTaskEntity!
+
+  """Получение всех задач аналитики с фильтрами"""
+  analyticsTasks(
+    """Фильтры для поиска задач"""
+    filter: AnalyticsFilterInput
+  ): [AnalyticsTaskEntity!]!
+
+  """Получение активных задач аналитики (в процессе обработки)"""
+  activeAnalyticsJobs: [AnalyticsTaskEntity!]!
+
+  """Получение статуса сообщения"""
+  getMessageStatus(
+    """Идентификатор сообщения"""
+    messageId: String!
+  ): ChatMessageEntity!
+
+  """Получение текущего пользователя"""
+  me: UserEntity!
+}
+
+"""
+Входные данные для получения списка транзакций с фильтрами, сортировкой и пагинацией
+"""
+input TransactionListInput {
+  """Идентификатор счета"""
+  accountId: String
+
+  """Тип транзакции"""
+  type: TransactionType
+
+  """Статус транзакции"""
+  status: TransactionStatus
+
+  """Дата начала периода"""
+  dateFrom: DateTime
+
+  """Дата окончания периода"""
+  dateTo: DateTime
+
+  """Категория транзакции"""
+  category: String
+
+  """Минимальная сумма транзакции"""
+  minAmount: Float
+
+  """Максимальная сумма транзакции"""
+  maxAmount: Float
+
+  """Поиск по описанию"""
+  search: String
+  skip: Int
+  take: Int
+  sort: SortOrder
+}
+
+"""Sort order"""
+scalar SortOrder
+
+"""Фильтры для получения списка аналитики"""
+input AnalyticsFilterInput {
+  """Тип аналитики"""
+  type: AnalyticsType
+
+  """Статус задачи"""
+  status: AnalyticsStatus
+
+  """Идентификатор счета"""
+  accountId: String
+
+  """Дата начала периода"""
+  dateFrom: DateTime
+
+  """Дата окончания периода"""
+  dateTo: DateTime
+}
+
+type Mutation {
+  """Регистрация пользователя. Требует подтверждения email."""
+  register(
+    """Данные для регистрации пользователя"""
+    input: RegisterInput!
+  ): UserEntity!
+
+  """
+  Авторизация пользователя. Возвращает пользователя с установленным JWT токеном.
+  """
+  login(
+    """Данные для авторизации пользователя"""
+    input: LoginInput!
+  ): UserEntity!
+
+  """
+  Подтверждение адреса электронной почты по токену, отправленному на email
+  """
+  confirmEmail(
+    """Токен подтверждения электронной почты"""
+    input: ConfirmEmailInput!
+  ): UserEntity!
+
+  """Updates the image store in the database (specifically isVisible)"""
+  updateImageStore(input: ImageStoreUpdateInput!): ImageEntity!
+
+  """Создание нового счета"""
+  createAccount(
+    """Данные для создания счета"""
+    input: AccountCreateInput!
+  ): AccountEntity!
+
+  """Обновление счета"""
+  updateAccount(
+    """Идентификатор счета"""
+    id: String!
+
+    """Данные для обновления счета"""
+    input: AccountUpdateInput!
+  ): AccountEntity!
+
+  """Удаление счета"""
+  deleteAccount(
+    """Идентификатор счета"""
+    id: String!
+  ): AccountEntity!
+
+  """Установка счета по умолчанию"""
+  setDefaultAccount(
+    """Идентификатор счета"""
+    id: String!
+  ): AccountEntity!
+
+  """Создание новой транзакции"""
+  createTransaction(
+    """Данные для создания транзакции"""
+    input: TransactionCreateInput!
+  ): TransactionEntity!
+
+  """Обновление транзакции"""
+  updateTransaction(
+    """Идентификатор транзакции"""
+    id: String!
+
+    """Данные для обновления транзакции"""
+    input: TransactionUpdateInput!
+  ): TransactionEntity!
+
+  """Удаление транзакции"""
+  deleteTransaction(
+    """Идентификатор транзакции"""
+    id: String!
+  ): TransactionEntity!
+
+  """Создание нового бюджета"""
+  createBudget(
+    """Данные для создания бюджета"""
+    input: BudgetCreateInput!
+  ): BudgetEntity!
+
+  """Обновление бюджета"""
+  updateBudget(
+    """Идентификатор бюджета"""
+    id: String!
+
+    """Данные для обновления бюджета"""
+    input: BudgetUpdateInput!
+  ): BudgetEntity!
+
+  """Удаление бюджета"""
+  deleteBudget(
+    """Идентификатор бюджета"""
+    id: String!
+  ): BudgetEntity!
+
+  """Синхронизация транзакций для конкретного счета Т-Банка"""
+  syncTBankAccount(
+    """Идентификатор счета"""
+    accountId: String!
+  ): Float!
+
+  """Синхронизация всех счетов Т-Банка пользователя"""
+  syncAllTBankAccounts: SyncResult!
+
+  """Создание задачи финансовой аналитики"""
+  createAnalytics(
+    """Данные для запроса аналитики"""
+    input: AnalyticsRequestInput!
+  ): AnalyticsTaskEntity!
+
+  """Повторная обработка задачи аналитики"""
+  refreshAnalytics(
+    """Идентификатор задачи"""
+    id: String!
+  ): AnalyticsTaskEntity!
+
+  """Отправка сообщения в финансовый чат-бот"""
+  sendMessage(
+    """Данные сообщения"""
+    input: ChatMessageCreateInput!
+  ): ChatMessageEntity!
+
+  """Обновление профиля пользователя"""
+  updateProfile(
+    """Данные для обновления профиля"""
+    input: UserUpdateInput!
+  ): UserEntity!
+
+  """Изменение пароля"""
+  changePassword(
+    """Данные для изменения пароля"""
+    input: PasswordChangeInput!
+  ): UserEntity!
+
+  """Удаление профиля пользователя"""
+  deleteProfile: UserEntity!
+}
+
+"""Входные данные для регистрации пользователя"""
+input RegisterInput {
+  """Имя пользователя"""
+  name: String
+
+  """Адрес электронной почты пользователя"""
+  email: String!
+
+  """Пароль пользователя"""
+  password: String!
+}
+
+"""Входные данные для авторизации пользователя"""
+input LoginInput {
+  """Адрес электронной почты пользователя"""
+  email: String!
+
+  """Пароль пользователя"""
+  password: String!
+}
+
+"""Входные данные для подтверждения адреса электронной почты"""
+input ConfirmEmailInput {
+  """Токен подтверждения, отправленный на электронную почту"""
+  token: String!
+}
+
+input ImageStoreUpdateInput {
+  id: UUID!
+
+  """is the image visible to the public"""
+  isVisible: Boolean!
+}
+
+"""
+A field whose value is a generic Universally Unique Identifier: https://en.wikipedia.org/wiki/Universally_unique_identifier.
+"""
+scalar UUID
+
+"""Входные данные для создания счета"""
+input AccountCreateInput {
+  """Название счета"""
+  name: String!
+
+  """Тип счета"""
+  type: AccountType!
+
+  """Начальный баланс счета"""
+  balance: Float
+
+  """Является ли счетом по умолчанию"""
+  isDefault: Boolean
+
+  """Тип банка"""
+  bankType: BankType
+
+  """Номер счета в банке"""
+  accountNumber: String
+
+  """Bearer токен для доступа к API банка"""
+  bearerToken: String
+}
+
+"""Входные данные для обновления счета"""
+input AccountUpdateInput {
+  """Название счета"""
+  name: String
+
+  """Тип счета"""
+  type: AccountType
+
+  """Является ли счетом по умолчанию"""
+  isDefault: Boolean
+
+  """Тип банка"""
+  bankType: BankType
+
+  """Номер счета в банке"""
+  accountNumber: String
+
+  """Bearer токен для доступа к API банка"""
+  bearerToken: String
+}
+
+"""Входные данные для создания транзакции"""
+input TransactionCreateInput {
+  """Тип транзакции"""
+  type: TransactionType!
+
+  """Сумма транзакции"""
+  amount: Float!
+
+  """Описание транзакции"""
+  description: String
+
+  """Дата транзакции"""
+  date: DateTime!
+
+  """Категория транзакции"""
+  category: String!
+
+  """URL чека"""
+  receiptUrl: String
+
+  """Является ли повторяющейся"""
+  isRecurring: Boolean
+
+  """Интервал повторения"""
+  recurringInterval: RecurringInterval
+
+  """Статус транзакции"""
+  status: TransactionStatus
+
+  """Идентификатор счета"""
+  accountId: String!
+}
+
+"""Входные данные для обновления транзакции"""
+input TransactionUpdateInput {
+  """Тип транзакции"""
+  type: TransactionType
+
+  """Сумма транзакции"""
+  amount: Float
+
+  """Описание транзакции"""
+  description: String
+
+  """Дата транзакции"""
+  date: DateTime
+
+  """Категория транзакции"""
+  category: String
+
+  """URL чека"""
+  receiptUrl: String
+
+  """Является ли повторяющейся"""
+  isRecurring: Boolean
+
+  """Интервал повторения"""
+  recurringInterval: RecurringInterval
+
+  """Статус транзакции"""
+  status: TransactionStatus
+
+  """Идентификатор счета"""
+  accountId: String
+}
+
+"""Входные данные для создания бюджета"""
+input BudgetCreateInput {
+  """Название бюджета"""
+  name: String!
+
+  """Категория бюджета"""
+  category: BudgetCategory!
+
+  """Тип бюджета"""
+  type: BudgetType!
+
+  """Целевая сумма бюджета"""
+  targetAmount: Float!
+
+  """Текущая потраченная сумма"""
+  currentAmount: Float = 0
+}
+
+"""Входные данные для обновления бюджета"""
+input BudgetUpdateInput {
+  """Название бюджета"""
+  name: String
+
+  """Категория бюджета"""
+  category: BudgetCategory
+
+  """Тип бюджета"""
+  type: BudgetType
+
+  """Целевая сумма бюджета"""
+  targetAmount: Float
+
+  """Текущая потраченная сумма"""
+  currentAmount: Float
+}
+
+"""Входные данные для запроса финансовой аналитики"""
+input AnalyticsRequestInput {
+  """Тип аналитики"""
+  type: AnalyticsType!
+
+  """Идентификатор счета (null для всех счетов)"""
+  accountId: String
+
+  """Дата начала периода (если не указана, берется весь период)"""
+  dateFrom: DateTime
+
+  """Дата окончания периода (если не указана, берется весь период)"""
+  dateTo: DateTime
+
+  """Комментарий пользователя для аналитики"""
+  comment: String
+}
+
+"""Входные данные для создания сообщения чата"""
+input ChatMessageCreateInput {
+  """Сообщение пользователя"""
+  message: String!
+}
+
+"""Входные данные для обновления профиля пользователя"""
+input UserUpdateInput {
+  """Имя пользователя"""
+  name: String
+
+  """URL изображения профиля"""
+  imageUrl: String
+}
+
+"""Входные данные для изменения пароля"""
+input PasswordChangeInput {
+  """Текущий пароль"""
+  currentPassword: String!
+
+  """Новый пароль"""
+  newPassword: String!
+}
